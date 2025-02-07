@@ -4,14 +4,23 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Pharmacy pharmacy = new Pharmacy();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Hinzufügen von Medikamenten mit der save-Methode
+        Medication paracetamol = new Medication("Paracetamol", 8.49, false);
+        Medication aspirin = new Medication("Aspirin", 5.99, true);
+        Medication ibuprofen = new Medication("Ibuprofen", 11.49, false);
+        pharmacy.save(paracetamol);
+        pharmacy.save(aspirin);
+        pharmacy.save(ibuprofen);
+
+        // Anzeige aller Medikamenten-Daten
+        pharmacy.AllMedicationsDetails();
+
+        // Löschen eines Medikaments
+        pharmacy.delete("Aspirin");
+
+        // Anzeige aller Medikamente nach dem Löschen
+        pharmacy.AllMedicationsDetails();
     }
 }
